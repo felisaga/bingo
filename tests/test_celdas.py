@@ -38,3 +38,11 @@ def test_columnas_ocupadas():
                 columnas[contador] = 1 #si encuentro un 1 se que la columna esta ocupada
             contador += 1
     assert columnas == [1,1,1,1,1,1,1,1,1] #los 9 1 indican que todas las columnas tienen por lo menos una celda ocupada
+
+def test_sin_filas_vacias():
+    mi_carton = carton()
+    for fila in mi_carton:
+        x = 0
+        for celda in fila: #si hay por lo menos un 1 ya va a dar bien el test
+            x += celda
+        assert x > 0
