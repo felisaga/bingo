@@ -58,3 +58,10 @@ def filas_vacias(mi_carton):
         if x == 0:
             return False
     return True
+
+def validar_numeros_carton(carton):
+    for fila in carton:
+        for celda in fila:
+            if celda != 0 and (celda > 90 or celda < 0):
+                return False
+    return True
