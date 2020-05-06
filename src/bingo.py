@@ -71,3 +71,4 @@ def mayores_derecha(carton):
                 min += 10
                 max += 10
     return True
+
