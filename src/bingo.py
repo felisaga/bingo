@@ -66,9 +66,8 @@ def mayores_derecha(carton):
         max = 10
         for columna in range(9):
             if carton[fila][columna] != 0:
-                if carton[fila][columna] < min or carton[fila][columna] > max:
+                if (carton[fila][columna] < min or carton[fila][columna] > max):
                     return False
-                min += 10
-                max += 10
+            min += 10 
+            max += 10
     return True
-
