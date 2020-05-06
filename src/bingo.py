@@ -4,9 +4,9 @@
 
 def carton():
     mi_carton = (
-        (1,0,1,1,1,0,1,0,1),
-        (0,1,0,1,0,1,1,0,1),
-        (0,1,0,0,1,1,0,1,0)
+        (0,11,0,32,44,0,62,73,0),
+        (8,0,25,38,0,56,0,0,80),
+        (0,17,29,0,47,0,67,0,88)
     )
     return mi_carton
 
@@ -58,4 +58,16 @@ def validar_numeros_carton(carton):
         for celda in fila:
             if celda != 0 and (celda > 90 or celda < 0):
                 return False
+    return True
+
+def mayores_derecha(carton):
+    for fila in range(3):
+        min = 0
+        max = 10
+        for columna in range(9):
+            if carton[fila][columna] != 0:
+                if carton[fila][columna] < min or carton[fila][columna] > max:
+                    return False
+                min += 10
+                max += 10
     return True
