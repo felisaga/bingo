@@ -1,6 +1,7 @@
 
 # Los 0 representan celdas vacias en el carton.
 # Los 1 representan celdas ocupadas en el carton.
+# <>
 
 def carton():
     mi_carton = (
@@ -45,12 +46,13 @@ def columnas_ocupadas(carton):
     return columnas
 
 def filas_vacias(mi_carton):
-    for fila in mi_carton:
-        x = 0
-        for celda in fila:
-            x += celda
-        if x == 0:
-            return False
+    for fila in range(3):
+        for fila in mi_carton:
+            x = 0
+            for celda in fila:
+                x += celda
+            if x == 0:
+                return False
     return True
 
 def validar_numeros_carton(carton):
@@ -68,6 +70,28 @@ def mayores_derecha(carton):
             if carton[fila][columna] != 0:
                 if (carton[fila][columna] < min or carton[fila][columna] > max):
                     return False
-            min += 10 
+            min += 10
             max += 10
+    return True
+
+def mayores_abajo(carton1):
+    ban = 0
+    for fila in range(9):
+        for columna in range(3):
+            if carton1[columna][fila] != 0:
+                if ban != 0:
+                    if ban > carton1[columna][fila]:
+                        return False
+                ban = carton1[columna][fila]
+        ban = 0
+    return True
+
+def nros_repetidos(carton1):
+    bandera = [0] * 100
+    for columna in range(3):
+        for fila in range(9):
+            if carton1[columna][fila] > 0 and carton1[columna][fila] <= 90:
+                if bandera[carton1[columna][fila]] != 0:
+                    return False
+                bandera[carton1[columna][fila]] = bandera[carton1[columna][fila]] + 1
     return True
