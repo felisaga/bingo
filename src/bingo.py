@@ -45,9 +45,9 @@ def columnas_ocupadas(carton):
             contador += 1
     return columnas
 
-def filas_vacias(mi_carton):
+def filas_vacias(carton):
     for fila in range(3):
-        for fila in mi_carton:
+        for fila in carton:
             x = 0
             for celda in fila:
                 x += celda
@@ -74,24 +74,90 @@ def mayores_derecha(carton):
             max += 10
     return True
 
-def mayores_abajo(carton1):
+def mayores_abajo(carton):
     ban = 0
-    for fila in range(9):
-        for columna in range(3):
-            if carton1[columna][fila] != 0:
+    for columna in range(9):
+        for fila in range(3):
+            if carton[fila][columna] != 0:
                 if ban != 0:
-                    if ban > carton1[columna][fila]:
+                    if ban > carton[fila][columna]:
                         return False
-                ban = carton1[columna][fila]
+                ban = carton[fila][columna]
         ban = 0
     return True
 
-def nros_repetidos(carton1):
+def nros_repetidos(carton):
     bandera = [0] * 100
-    for columna in range(3):
-        for fila in range(9):
-            if carton1[columna][fila] > 0 and carton1[columna][fila] <= 90:
-                if bandera[carton1[columna][fila]] != 0:
+    for fila in range(3):
+        for columna in range(9):
+            if carton[fila][columna] > 0 and carton[fila][columna] <= 90:
+                if bandera[carton[fila][columna]] != 0:
                     return False
-                bandera[carton1[columna][fila]] = bandera[carton1[columna][fila]] + 1
+                bandera[carton[fila][columna]] = bandera[carton[fila][columna]] + 1
+    return True
+
+def columnas_decenas(carton):
+    x = 0
+    y = 9
+    for columna in range(9):
+        for fila in range(3):
+            if carton[fila][columna] != 0:
+                if not(x <= carton[fila][columna] <= y):
+                    return False
+        x += 10
+        y += 10
+        if y == 89:
+            y = 90
+    return True
+
+def cinco_celdas(carton):
+    for fila in carton:
+        ban = 0
+        for celda in fila:
+            if celda != 0:
+                ban += 1
+        if ban != 5:
+            return False
+    return True
+
+def matriz_valida(carton):
+    filas = len(carton)
+    for fila in range(3):
+        columnas = 0
+        columnas += len(carton[fila])
+        if columnas != 9:
+            return False
+    return filas == 3 and columnas == 9
+
+def columnas_vacias(carton):
+    x = 0
+    for columna in range(9):
+        for fila in range(3):
+            x += fila
+        if x == 0:
+            return False
+    return True
+
+def una_celda(carton):
+    ban = 0
+    for columnda in range(9):
+        con = 0
+        for fila in range(3):
+            if carton[fila][columnda] != 0:
+                con += 1
+        if con == 1:
+            ban += 1
+    return ban == 3
+
+def vacias_consecutivas(carton):
+    for fila in range(3):
+        for columna in range(7):
+            if carton[fila][columna] == 0 and carton[fila][columna+1] == 0 and carton[fila][columna+2] == 0:
+                return False
+    return True
+def llenas_consecutivas(carton):
+    for fila in range(3):
+        for columna in range(7):
+            if carton[fila][columna] != 0 and carton[fila][columna+1] != 0 and carton[fila][columna+2] != 0:
+                return False
     return True
