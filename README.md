@@ -16,10 +16,4 @@
     En una fila no existen más de dos celdas vacías consecutivas.
     En una fila no existen más de dos celdas ocupadas consecutivas.
 
-```html
-      // code for coloring
-<span style="color: green"> algo </span>
 
-<font color="green"> Sno es verde </font>
-```html
-      // code for coloring
