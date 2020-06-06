@@ -214,14 +214,10 @@ def llenas_consecutivas(carton):
     return True
 
 def carton ():
-    x = 0
     while True:
         carton = intento_carton()
         if contar_celdas_ocupadas(carton) == 15 and columnas_ocupadas(carton) == [1,1,1,1,1,1,1,1,1] and filas_vacias(carton) and validar_numeros_carton(carton) and mayores_derecha(carton) and mayores_abajo(carton) and nros_repetidos(carton) and columnas_decenas(carton) and cinco_celdas(carton) and matriz_valida(carton) and columnas_vacias(carton) and una_celda(carton) and vacias_consecutivas(carton) and llenas_consecutivas(carton):
             break
-        else:
-            x += 1
-        print(x)
     return carton
 
 def imprimir(carton):
