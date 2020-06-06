@@ -1,15 +1,66 @@
 
+import random
+import math
+
+def intento_carton():
+    contador = 0
+
+    carton = [
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0]
+    ]
+    numerosCarton = 0
+
+    while numerosCarton < 15:
+        contador += 1
+        if contador == 50 :
+            return intento_carton()
+        numero = random.randint(1, 90)
+
+        columna = math.floor(numero / 10)
+        if columna == 9:
+            columna = 8
+        huecos = 0
+        for i in range(3):
+            if carton[i][columna] == 0:
+                huecos += 1
+            if carton[i][columna] == numero:
+                huecos = 0
+                break
+        if(huecos < 2):
+            continue
+
+        fila = 0
+        for j in range(3):
+            huecos = 0
+            for i in range(9):
+                if carton[fila][i] == 0:
+                    huecos += 1
+            if huecos < 5 or carton[fila][columna] != 0:
+                fila += 1
+            else:
+                break
+        if fila == 3:
+            continue
+
+        carton[fila][columna] = numero
+        numerosCarton += 1
+        contador = 0
+
+    for x in range(9):
+        huecos = 0
+        for y in range(3):
+            if carton[y][x] == 0:
+                huecos += 1
+        if huecos == 3:
+            return intento_carton()
+
+    return carton
+
 # Los 0 representan celdas vacias en el carton.
 # Los 1 representan celdas ocupadas en el carton.
 # <>
-
-def carton():
-    mi_carton = (
-        (0,11,0,32,44,0,62,73,0),
-        (8,0,25,38,0,56,0,0,80),
-        (0,17,29,0,47,0,67,0,88)
-    )
-    return mi_carton
 
 def contar_celdas_ocupadas(carton):
     contador = 0
@@ -35,8 +86,8 @@ def mas_de_15(carton):
                 contador += 1
     return contador
 
-columnas = [0,0,0,0,0,0,0,0,0]
 def columnas_ocupadas(carton):
+    columnas = [0,0,0,0,0,0,0,0,0]
     for fila in carton:
         contador = 0
         for celda in fila:
@@ -58,7 +109,7 @@ def filas_vacias(carton):
 def validar_numeros_carton(carton):
     for fila in carton:
         for celda in fila:
-            if celda != 0 and (celda > 90 or celda < 0):
+            if celda != 0 and (celda > 91 or celda < 0):
                 return False
     return True
 
@@ -161,3 +212,19 @@ def llenas_consecutivas(carton):
             if carton[fila][columna] != 0 and carton[fila][columna+1] != 0 and carton[fila][columna+2] != 0:
                 return False
     return True
+
+def carton ():
+    x = 0
+    while True:
+        carton = intento_carton()
+        if contar_celdas_ocupadas(carton) == 15 and columnas_ocupadas(carton) == [1,1,1,1,1,1,1,1,1] and filas_vacias(carton) and validar_numeros_carton(carton) and mayores_derecha(carton) and mayores_abajo(carton) and nros_repetidos(carton) and columnas_decenas(carton) and cinco_celdas(carton) and matriz_valida(carton) and columnas_vacias(carton) and una_celda(carton) and vacias_consecutivas(carton) and llenas_consecutivas(carton):
+            break
+        else:
+            x += 1
+        print(x)
+    return carton
+
+def imprimir(carton):
+    for fila in carton:
+        print(fila)
+imprimir(carton())
