@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/felisaga/bingo.svg?branch=master)](https://travis-ci.com/felisaga/bingo)
+[![Build Status](https://travis-ci.com/felisaga/bingo.svg?branch=master)](https://travis-ci.com/felisaga/bingo) [![Coverage Status](https://coveralls.io/repos/github/felisaga/bingo/badge.svg?branch=master)](https://coveralls.io/github/felisaga/bingo?branch=master)
 
 # Bingo :white_haired_woman: :older_man: :partying_face::partying_face::partying_face::older_woman: :person_white_hair::manual_wheelchair::cowboy_hat_face:
 
