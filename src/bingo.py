@@ -48,14 +48,6 @@ def intento_carton():
         numerosCarton += 1
         contador = 0
 
-    for x in range(9):
-        huecos = 0
-        for y in range(3):
-            if carton[y][x] == 0:
-                huecos += 1
-        if huecos == 3:
-            return intento_carton()
-
     return carton
 
 # Los 0 representan celdas vacias en el carton.
@@ -216,7 +208,20 @@ def llenas_consecutivas(carton):
 def carton ():
     while True:
         carton = intento_carton()
-        if contar_celdas_ocupadas(carton) == 15 and columnas_ocupadas(carton) == [1,1,1,1,1,1,1,1,1] and filas_vacias(carton) and validar_numeros_carton(carton) and mayores_derecha(carton) and mayores_abajo(carton) and nros_repetidos(carton) and columnas_decenas(carton) and cinco_celdas(carton) and matriz_valida(carton) and columnas_vacias(carton) and una_celda(carton) and vacias_consecutivas(carton) and llenas_consecutivas(carton):
+        if (contar_celdas_ocupadas(carton) == 15
+        and columnas_ocupadas(carton) == [1,1,1,1,1,1,1,1,1]
+        and filas_vacias(carton)
+        and validar_numeros_carton(carton)
+        and mayores_derecha(carton)
+        and mayores_abajo(carton)
+        and nros_repetidos(carton)
+        and columnas_decenas(carton)
+        and cinco_celdas(carton)
+        and matriz_valida(carton)
+        and columnas_vacias(carton)
+        and una_celda(carton)
+        and vacias_consecutivas(carton)
+        and llenas_consecutivas(carton)):
             break
     return carton
 
