@@ -3,7 +3,9 @@
 # Bingo :white_haired_woman: :older_man: :partying_face::partying_face::partying_face::older_woman: :person_white_hair::manual_wheelchair::cowboy_hat_face:
 
 Código en Python 3 que genera un cartón de bingo. Escrito para Adaptación Del Ambiente De Trabajo, Instituto Politécnico Superior "Gral. San Martín", 2020.
-Reglas
+
+
+# Reglas
 
 Se considara un cartón válido al que cumple con las siguientes condiciones:
 
