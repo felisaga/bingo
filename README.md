@@ -24,7 +24,7 @@ Se considara un cartón válido al que cumple con las siguientes condiciones:
    
 Para ejecutarlo usar el comando: :arrow_down:
 
-python src/bingo.py
+python3 src/bingo.py
 
 # Ejemplo de salida :ballot_box_with_check:
 
