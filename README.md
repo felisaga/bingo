@@ -24,9 +24,11 @@ Se considara un cartón válido al que cumple con las siguientes condiciones:
     En una fila no existen más de dos celdas vacías consecutivas.
     En una fila no existen más de dos celdas ocupadas consecutivas.
    
-Para ejecutarlo usar el comando: :arrow_down:
+Para generar un carton escribir el siguiente comadno: :arrow_down:
 
-python3 src/bingo.py
+python3 Juego.py
+
+y para ver el carton en una pagina web escribir el comando " web/bingo_web.py " y se generara un archivo en la carpeta web que hay que abrir con un navegador
 
 # Ejemplo de salida :ballot_box_with_check:
 
