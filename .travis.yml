@@ -4,5 +4,11 @@ python:
     - 3.6
     - 3.7
 
+install:
+    pip install coveralls
+
 script:
-    pytest
+    coverage run -m --source=/home/travis/build/felisaga/bingo/src pytest
+
+after_success:
+    coveralls
