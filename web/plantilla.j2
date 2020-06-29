@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+
+        <title>Bingo</title>
+        <link rel="icon" type="image/png" href="./quini6.png">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+      <body>
+          <div class="containermayor">
+              {% for fila in carton %}
+              <div class="flex-container">
+                  {% for celda in fila %}
+                  {% if celda == 0 %}
+                  <div class="celda_vacia">
+                  </div>
+                  {% else %}
+                  <div >
+                      {{ celda }}
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+              </div>
+              {% endfor %}
+          </div>
+      </body>
+      </html>
+
+
+
+    </body>
+
+</html>
